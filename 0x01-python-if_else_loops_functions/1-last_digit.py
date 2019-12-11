@@ -3,6 +3,8 @@ import random
 import math
 number = random.randint(-10000, 10000)
 ld = math.floor(math.fabs(number)) % 10
+if number < 0:
+    ld = ld * -1
 if ld > 5:
     str = "and is greater than 5"
 elif ld == 0:
