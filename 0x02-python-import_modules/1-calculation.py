@@ -1,7 +1,7 @@
 #!/user/bin/python3
-from calculator_1.py import add, sub, mul, div
+import math as calculator_1.py
 
-if __name__ == "__main__":
+__Name__ == "__main__":
 
     a = 10
     b = 5
