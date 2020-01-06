@@ -2,7 +2,7 @@
 /**
  *add - adds the top two values of the stack
  *@stack: pointer to the top of the stack
- *@line_number: the line number of the command being run
+ *@line_number: the line number of the command
  *
  *Return: void
  */
@@ -20,7 +20,8 @@ void add(stack_t **stack, unsigned int line_number)
 	}
 	if (nodes < 2)
 	{
-		printf("L%u: can't add, stack too short\n", line_number);
+		fprintf(2, "L%u: can't add, stack too short\n", line_number);
+		freestack(stack);
 		exit(EXIT_FAILURE);
 	}
 	sum = (*stack)->n + (*stack)->next->n;

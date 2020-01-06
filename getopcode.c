@@ -28,6 +28,7 @@ void getopcode(stack_t **stack, unsigned int line_number, char *opcode)
 		i++;
 	}
 
-	printf("L%u: unknown instruction %s\n", line_number, opcode);
+	fprintf(2,"L%u: unknown instruction %s\n", line_number, opcode);
+	freestack(stack);
 	exit(EXIT_FAILURE);
 }
