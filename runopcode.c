@@ -24,7 +24,7 @@ stack_t *runopcode(FILE *file, stack_t *stack)
 		{
 			j++;
 		}
-		if (line[j] == '\n')
+		if (line[j] == '\n' || line[j] == '#')
 		{
 			continue;
 		}
