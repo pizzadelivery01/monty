@@ -18,8 +18,10 @@ void push(stack_t **stack, unsigned int line_number)
 	{
 		if (line[i] == '\0')
 		{
-			fprintf(2, "L%u: usage: push integer\n", line_number);
-			freestack(stack);
+			fprintf(stderr, "L%u: usage: push integer\n",
+				line_number);
+			freestack(*stack);
+			free(line);
 			exit(EXIT_FAILURE);
 		}
 		i++;
@@ -34,8 +36,9 @@ void push(stack_t **stack, unsigned int line_number)
 	node = malloc(sizeof(stack_t));
 	if (node == NULL)
 	{
-		fprintf(2, "Error: malloc failed\n");
-		freestack(stack);
+		fprintf(stderr, "Error: malloc failed\n");
+		freestack(*stack);
+		free(line);
 		exit(EXIT_FAILURE);
 	}
 	node->n = atoi(value);
@@ -81,8 +84,9 @@ void pint(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 
 	if (*stack == NULL)
 	{
-		fprintf(2, "L%u: can't pint, stack empty\n", line_number);
-		freestack(stack);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		freestack(*stack);
+		free(line);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);
@@ -99,8 +103,9 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL)
 	{
-		fprintf(2, "L%u: can't pop an empty stack\n", line_number);
-		freestack(stack)
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+		freestack(*stack);
+		free(line);
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->next != NULL)
@@ -132,8 +137,10 @@ void swap(stack_t **stack, unsigned int line_number)
 	}
 	if (nodes < 2)
 	{
-		fprintf(2, "L%u: can't swap, stack too short\n", line_number);
-		freestack(stack);
+		fprintf(stderr, "L%u: can't swap, stack too short\n",
+			line_number);
+		freestack(*stack);
+		free(line);
 		exit(EXIT_FAILURE);
 	}
 	temp = (*stack)->n;

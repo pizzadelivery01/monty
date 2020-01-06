@@ -12,7 +12,7 @@ void add(stack_t **stack, unsigned int line_number)
 	int sum;
 	int nodes = 0;
 	stack_t *iterator = *stack;
-
+	extern char *line;
 	while (iterator != NULL)
 	{
 		nodes++;
@@ -20,8 +20,10 @@ void add(stack_t **stack, unsigned int line_number)
 	}
 	if (nodes < 2)
 	{
-		fprintf(2, "L%u: can't add, stack too short\n", line_number);
-		freestack(stack);
+		fprintf(stderr, "L%u: can't add, stack too short\n",
+			line_number);
+		freestack(*stack);
+		free(line);
 		exit(EXIT_FAILURE);
 	}
 	sum = (*stack)->n + (*stack)->next->n;
