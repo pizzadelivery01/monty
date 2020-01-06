@@ -1,3 +1,4 @@
+#include "global.h"
 #include "monty.h"
 /**
  *add - adds the top two values of the stack
@@ -12,7 +13,6 @@ void add(stack_t **stack, unsigned int line_number)
 	int sum;
 	int nodes = 0;
 	stack_t *iterator = *stack;
-	extern char *line;
 
 	while (iterator != NULL)
 	{
