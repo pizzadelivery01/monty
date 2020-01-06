@@ -49,5 +49,6 @@ char *condense(void);
 void getopcode(stack_t **stack, unsigned int line_number, char *opcode);
 stack_t *runopcode(FILE *file, stack_t *stack);
 void freestack(stack_t *stack);
-
+void add(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
 #endif
