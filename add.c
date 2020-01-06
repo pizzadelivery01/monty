@@ -13,6 +13,7 @@ void add(stack_t **stack, unsigned int line_number)
 	int nodes = 0;
 	stack_t *iterator = *stack;
 	extern char *line;
+
 	while (iterator != NULL)
 	{
 		nodes++;
