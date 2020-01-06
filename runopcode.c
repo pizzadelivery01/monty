@@ -6,20 +6,20 @@
  *@stack: pointer to top of stack
  *Return: pointer to stack
  */
-void runopcode(FILE *file, stack_t *stack)
+stack_t *runopcode(FILE *file, stack_t *stack)
 {
 	int num_of_chars = 0;
 	int i, j;
-	unsigned int line_number;
+	unsigned int line_number = 0;
+	char *opcode;
 	size_t size;
-	stack_t *stack;
 
 	while (num_of_chars != -1)
 	{
 		line = NULL;
 		size = 0, i = 0, j = 0;
 		num_of_chars = getline(&line, &size, file);
-		line_num++;
+		line_number++;
 		while (line[j] == ' ')
 		{
 			j++;

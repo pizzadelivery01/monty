@@ -7,13 +7,13 @@
  *@line_number: line number of opcode
  *Return: nothing
  */
-void push(stack_t **stack, int line_number)
+void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node;
 	char *value;
 	int i = 0, j = 0;
 
-	value = mallock(sizeof(char) * 12);
+	value = malloc(sizeof(char) * 12);
 	while (line[i] < '0' || line[i] > '9')
 	{
 		if (line[i] == '\0')
@@ -27,7 +27,7 @@ void push(stack_t **stack, int line_number)
 	while (line[i] != '\0' && line[i] != ' ' && line[i] > '0'
 	       && line[i] > 9)
 	{
-		value[j] == line[i];
+		value[j] = line[i];
 		i++, j++;
 	}
 	value[j] = '\0';
@@ -45,7 +45,7 @@ void push(stack_t **stack, int line_number)
 	else
 	{
 		node->next = *stack;
-		*stack->prev = node;
+		(*stack)->prev = node;
 	}
 	*stack = node;
 	free(value);
@@ -56,10 +56,9 @@ void push(stack_t **stack, int line_number)
  *@line_number: line number of command
  *Return: nothing
  */
-void pall(stack_t **stack, int line_number)
+void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
 	stack_t *value;
-	void line_num;
 
 	value = *stack;
 	if (value == NULL)
@@ -77,9 +76,8 @@ void pall(stack_t **stack, int line_number)
  *@line_number: line number of opcode
  *Return: nothing
  */
-void pint(stack_t **stack, unsigned int line_number)
+void pint(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
-	void line_number;
 
 	if (*stack == NULL)
 	{

@@ -1,6 +1,7 @@
-#indef _MONTY_
-#define _MONTY_
+#ifndef MONTY
+#define MONTY
 
+#include <string.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -38,3 +39,15 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+char *condense(void);
+void getopcode(stack_t **stack, unsigned int line_number, char *opcode);
+stack_t *runopcode(FILE *file, stack_t *stack);
+void freestack(stack_t *stack);
+
+#endif

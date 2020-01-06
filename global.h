@@ -1,4 +1,4 @@
-#indef _GLOBAL_
-#define _GLOBAL_
+#ifndef GLOBAL
+#define GLOBAL
 extern char *line;
 #endif

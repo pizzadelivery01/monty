@@ -10,18 +10,17 @@
  */
 void getopcode(stack_t **stack, unsigned int line_number, char *opcode)
 {
-	int = 0;
+	int i = 0;
 
 	instruction_t ops[] = {
 		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
-		{"swap", swap}, {"add", add}, {"nop", nop}, {"sub", sub},
-		{"div", divide}, {"mul", mul}, {"mod", mod}, {"pchar", pchar},
+		{"swap", swap},
 		{NULL, NULL}
 	};
 
 	while (ops[i].opcode != NULL)
 	{
-		if (strcmp(opcode, ops[i].opcode == 0))
+		if (strcmp(opcode, ops[i].opcode) == 0)
 		{
 			ops[i].f(stack, line_number);
 			return;
